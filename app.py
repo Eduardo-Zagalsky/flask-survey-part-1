@@ -16,5 +16,11 @@ def root_route():
 
 @app.route("/questions/<int:q>")
 def question(q):
-    question = satisfaction_survey.questions[q].question
+    question = satisfaction_survey.questions[q]
     return render_template("question.html", question = question, number = q)
+
+@app.route("/answer", methods=["POST"])
+def answers():
+    answer = request.form.get("answer")
+    responses.append(answer)
+    return redirect(f"/questions/{len(responses)}")
