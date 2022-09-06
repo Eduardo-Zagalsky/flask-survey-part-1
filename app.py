@@ -13,3 +13,8 @@ def root_route():
     title = satisfaction_survey.title
     instructions = satisfaction_survey.instructions
     return render_template("satisfaction.html", title = title, instructions = instructions)
+
+@app.route("/questions/<int:q>")
+def question(q):
+    question = satisfaction_survey.questions[q].question
+    return render_template("question.html", question = question, number = q)
