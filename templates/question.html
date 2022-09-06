@@ -2,8 +2,11 @@
 {% block title%}Question {{number + 1}}{%endblock%}
 {% block content %}
 <h1>Question {{number + 1}}</h1>
-<form action="/answer" method="post">
-    <h3>{{question}}</h3>
-    <input type="radio" name="answer" id="answer">
+<form action="/answer" method="post" class="answers">
+    <h3>{{question.question}}</h3>
+    {% for choice in question.choices %}
+    <p><input type="radio" name="answer" value="{{ choice }}">{{ choice }}</p>
+    {%endfor%}
+    <button>Continue</button>
 </form>
 {% endblock %}
