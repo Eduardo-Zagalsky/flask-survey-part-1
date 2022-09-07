@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% block title%}Question {{number + 1}}{%endblock%}
 {% block content %}
+{% for msg in get_flashed_messages()%}
+<p>{{msg}}</p>
+{%endfor%}
 <h1>Question {{number + 1}}</h1>
 <form action="/answer" method="post" class="answers">
     <h3>{{question.question}}</h3>
