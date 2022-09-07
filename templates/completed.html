@@ -1,0 +1,8 @@
+{%extends 'base.html'%}
+{%block title%}Thank You{%endblock%}
+{%block content%}
+<h1>Survey Answers</h1>
+{% for key,value in responses.items()%}
+<p id="Q">{{key}}</p><p id="A">{{value}}</p>
+{%endfor%}
+{%endblock%}
