@@ -4,7 +4,7 @@ from surveys import satisfaction_survey
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "our-secret"
-# app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
+app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 debug = DebugToolbarExtension(app)
 
 objresponses = {}
